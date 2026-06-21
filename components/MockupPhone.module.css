@@ -1,0 +1,243 @@
+.device {
+  width: clamp(220px, 20vw, 270px);
+  height: auto;
+  aspect-ratio: 1 / 2;
+  container-type: inline-size;
+  background: linear-gradient(135deg, #5b5759 0%, #171416 18%, #393537 52%, #0b090a 100%);
+  border-color: #292628;
+  box-shadow: 18px 30px 70px #000c, inset 0 0 0 1px #ffffff2b, inset 3px 0 4px #ffffff16, 0 0 0 1px #000;
+  isolation: isolate;
+}
+
+.screen {
+  position: relative;
+  isolation: isolate;
+  box-shadow: inset 0 0 0 1px #ffffff12;
+}
+
+.screen::after {
+  content: "";
+  position: absolute;
+  z-index: 20;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(118deg, #ffffff12 0%, transparent 24%, transparent 68%, #ffffff08 100%);
+}
+
+.sideButton {
+  position: absolute;
+  z-index: -1;
+  width: 4px;
+  border-radius: 3px 0 0 3px;
+  background: linear-gradient(90deg, #161315, #666164);
+  box-shadow: inset 1px 0 #ffffff24;
+}
+
+.silentButton { height: 29px; top: 74px; left: -12px; }
+.volumeUp { height: 48px; top: 116px; left: -12px; }
+.volumeDown { height: 48px; top: 174px; left: -12px; }
+.powerButton { height: 77px; top: 130px; right: -12px; border-radius: 0 3px 3px 0; }
+
+.dynamicIsland {
+  z-index: 30;
+  top: 8px;
+  width: 82px;
+  height: 22px;
+  border-radius: 14px;
+  background: #030303;
+  box-shadow: inset 0 -1px #222, 0 1px 3px #0009;
+}
+
+.dynamicIsland i {
+  position: absolute;
+  top: 7px;
+  right: 9px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #24486a, #080d16 48%, #020203 70%);
+  box-shadow: 0 0 2px #4389bd55;
+}
+
+.statusBar {
+  position: absolute;
+  z-index: 25;
+  top: 9px;
+  left: 15px;
+  right: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  font-size: 6px;
+  pointer-events: none;
+  width: auto;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.statusBar { pointer-events: auto; }
+.statusBar span { display: flex; align-items: center; gap: 3px; }
+.statusBar svg { width: 8px; height: 8px; }
+
+.homeIndicator {
+  position: absolute;
+  z-index: 25;
+  bottom: 5px;
+  left: 50%;
+  width: 72px;
+  height: 3px;
+  border-radius: 3px;
+  background: #fff;
+  opacity: .8;
+  transform: translateX(-50%);
+  border: 0;
+  cursor: pointer;
+}
+
+.appViewport {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transform: scale(var(--phone-zoom, 1));
+  transform-origin: center;
+  transition: transform .25s ease;
+}
+
+.homeScreen {
+  height: 100%;
+  padding: 42px 12px 18px;
+  color: #fff;
+  background: radial-gradient(circle at 25% 12%, #f02a55 0 8%, transparent 28%), radial-gradient(circle at 85% 78%, #6d1630 0 5%, transparent 32%), linear-gradient(155deg,#17070d,#420819 58%,#0b080a);
+}
+
+.homeDate small,.homeDate strong,.homeDate span { display: block; }
+.homeDate small { color: #ff9bb0; font-size: 5px; letter-spacing: .15em; }
+.homeDate strong { margin-top: 2px; font: 400 38px/.95 var(--font-luxury); }
+.homeDate span { color: #d7ccd0; font-size: 6px; }
+.appGrid { display: grid; grid-template-columns: repeat(4,1fr); gap: 11px 6px; margin-top: 24px; }
+.appGrid button { min-width: 0; border: 0; color: #fff; background: transparent; cursor: pointer; }
+.appGrid button i { width: 34px; height: 34px; margin: auto; display: grid; place-items: center; border-radius: 9px; background: linear-gradient(145deg,#ff4568,#9d062c); box-shadow: inset 0 1px #ffffff4d,0 5px 12px #0005; transition: transform .2s; }
+.appGrid button:active i { transform: scale(.88); }
+.appGrid button span { display: block; margin-top: 4px; overflow: hidden; font-size: 5px; text-overflow: ellipsis; }
+.appGrid .appInstagram { background: linear-gradient(145deg,#7138cb,#f03472 55%,#ffbd45); }
+.appGrid .appPhotos { color: #d43355; background: linear-gradient(145deg,#fff,#ded8d8); }
+.appGrid .appInsights { background: linear-gradient(145deg,#312530,#0d0a0c); }
+.homeWidget { margin-top: 25px; padding: 12px; border: 1px solid #ffffff1c; border-radius: 12px; background: #ffffff12; backdrop-filter: blur(12px); box-shadow: inset 0 1px #ffffff18; }
+.homeWidget small,.homeWidget b,.homeWidget span { display: block; }
+.homeWidget small { color: #ff718e; font-size: 5px; letter-spacing: .13em; }
+.homeWidget b { margin: 5px 0 3px; font: 400 13px var(--font-luxury); }
+.homeWidget span { color: #bfb3b7; font-size: 5px; }
+.homeWidget>div { height: 3px; margin-top: 9px; overflow: hidden; border-radius: 3px; background: #ffffff1f; }
+.homeWidget>div i { display: block; width: 82%; height: 100%; background: var(--red); }
+.dock { position: absolute; right: 12px; bottom: 18px; left: 12px; height: 53px; display: flex; align-items: center; justify-content: space-around; border: 1px solid #ffffff1c; border-radius: 16px; background: #ffffff1a; backdrop-filter: blur(14px); }
+.dock button { width: 34px; height: 34px; display: grid; place-items: center; border: 0; border-radius: 10px; color: #fff; background: linear-gradient(145deg,#ff3b63,#9e062d); cursor: pointer; }
+.dock svg { width: 17px; }
+
+.instagramApp { min-height: 100%; padding: 34px 0 18px; color: #151113; background: #faf7f2; }
+.instagramApp>header,.simpleApp>header { height: 28px; padding: 0 10px; display: grid; grid-template-columns: 22px 1fr 22px; align-items: center; text-align: center; }
+.instagramApp header button,.simpleApp header button { border: 0; background: transparent; cursor: pointer; }
+.instagramApp header svg,.simpleApp header svg { width: 13px; }
+.instagramApp header b,.simpleApp header b { font-size: 7px; }
+.igStories { display: flex; gap: 7px; padding: 8px 9px; overflow: hidden; border-bottom: 1px solid #e8e1dc; }
+.igStories div { text-align: center; }
+.igStories i { width: 31px; height: 31px; display: grid; place-items: center; border: 2px solid #e8003f; border-radius: 50%; color: #fff; background: linear-gradient(145deg,#31121b,#c84963); font-size: 7px; font-style: normal; box-shadow: inset 0 0 0 2px #fff; }
+.igStories span { display: block; margin-top: 2px; font-size: 4px; }
+.igPost { background: #fff; }
+.igAuthor { height: 34px; padding: 5px 8px; display: flex; align-items: center; gap: 6px; }
+.igAuthor>i { width: 23px; height: 23px; display: grid; place-items: center; border-radius: 50%; color: #fff; background: #be173f; font-size: 7px; font-style: normal; }
+.igAuthor>span { flex: 1; }
+.igAuthor b,.igAuthor small { display: block; }
+.igAuthor b { font-size: 6px; }.igAuthor small { color: #8f8588; font-size: 4px; }.igAuthor svg { width: 12px; }
+.igImage { position: relative; height: 230px; overflow: hidden; color: #fff; background: linear-gradient(160deg,#efbdad 0 35%,#93344d 36% 65%,#241018 66%); }
+.igImage>div { position: absolute; right: 15px; bottom: 0; width: 90px; height: 180px; border-radius: 50px 50px 0 0; background: linear-gradient(90deg,#240d14,#7d2f43); transform: rotate(-7deg); }
+.igImage strong { position: absolute; z-index: 2; left: 12px; bottom: 18px; font: 400 22px/.72 var(--font-luxury); }.igImage strong em { font: 400 1.2em var(--font-script); }.igImage>span { position: absolute; top: 10px; left: 10px; font-size: 4px; letter-spacing: .18em; }
+.igActions { padding: 7px 9px 3px; display: flex; justify-content: space-between; }.igActions span { display: flex; gap: 8px; }.igActions svg { width: 14px; }.igPost p { padding: 2px 9px 10px; font-size: 5px; line-height: 1.5; }
+
+.simpleApp { min-height: 100%; padding: 34px 10px 18px; color: #fff; background: linear-gradient(160deg,#171014,#080607); }.simpleApp>header { margin: 0 -5px 14px; }.simpleApp>strong { display: block; margin-top: 28px; font: 400 46px var(--font-luxury); }.simpleApp>span { color: #ff496c; font-size: 5px; letter-spacing: .14em; }.photoGrid { display: grid; grid-template-columns: repeat(3,1fr); gap: 3px; }.photoGrid i { aspect-ratio: 1; background: linear-gradient(145deg,#d99592,#541728); }.photoGrid i:nth-child(2n) { background: linear-gradient(145deg,#3e2b32,#d4ae8f); }.insightBars { height: 190px; margin-top: 32px; display: flex; align-items: end; gap: 7px; }.insightBars i { flex: 1; border-radius: 3px 3px 0 0; background: linear-gradient(#ff496c,#940023); }
+
+.controlCenter { position: absolute; z-index: 40; inset: 0; padding: 38px 12px 20px; color: #fff; background: #130d12e8; backdrop-filter: blur(18px); animation: controlIn .25s ease both; }.controlCenter header { display: flex; align-items: center; justify-content: space-between; }.controlCenter header b { font-size: 8px; }.controlCenter header button { width: 24px; height: 24px; display: grid; place-items: center; border: 0; border-radius: 50%; color: #fff; background: #ffffff16; }.controlCenter header svg { width: 12px; }.controlGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-top: 14px; }.controlGrid button { height: 58px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px; border: 1px solid #ffffff12; border-radius: 13px; color: #aaa; background: #ffffff10; font-size: 5px; }.controlGrid button svg { width: 16px; }.controlGrid .controlActive { color: #fff; background: #d90037; }.sliders { display: grid; gap: 8px; margin-top: 10px; }.sliders label { height: 30px; padding: 0 9px; display: flex; align-items: center; gap: 8px; border-radius: 10px; background: #ffffff12; }.sliders svg { width: 12px; }.sliders input { width: 100%; accent-color: var(--red); }.zoomControl { margin-top: 10px; padding: 10px; border-radius: 10px; background: #ffffff12; }.zoomControl>span { font-size: 5px; letter-spacing: .14em; }.zoomControl>div { margin-top: 8px; display: flex; align-items: center; justify-content: space-between; }.zoomControl button { width: 28px; height: 24px; display: grid; place-items: center; border: 0; border-radius: 8px; color: #fff; background: #ffffff12; }.zoomControl svg { width: 12px; }.zoomControl b { font-size: 8px; }
+
+.creatorApp {
+  width: 100%;
+  height: 100%;
+  padding: 30px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow: hidden;
+  color: #fff;
+  background: #0d090b;
+  font-family: var(--font-body);
+}
+
+.creatorApp :global(.editor-top) { display: flex; align-items: center; justify-content: space-between; }
+.creatorApp :global(.editor-top b), .creatorApp :global(.editor-top small) { display: block; }
+.creatorApp :global(.editor-top b) { font-size: 8px; letter-spacing: .12em; }
+.creatorApp :global(.editor-top small) { margin-top: 2px; color: #8f8588; font-size: 5px; }
+.creatorApp :global(.editor-top > button) { padding: 5px 7px; border: 1px solid var(--red); border-radius: 10px; color: #ff4164; background: transparent; font-size: 5px; letter-spacing: .12em; cursor: pointer; transition: background .2s,color .2s; }
+.creatorApp :global(.editor-top > button:active) { color: #fff; background: var(--red); }
+
+.creatorApp :global(.vlog-preview) { position: relative; height: 190px; flex: none; overflow: hidden; border-radius: 3px; background: linear-gradient(145deg,#341118,#a73a50 48%,#e5afa4); }
+.creatorApp :global(.preview-meta) { position: absolute; z-index: 3; inset: 8px 8px auto; display: flex; justify-content: space-between; }
+.creatorApp :global(.preview-meta span) { padding: 3px 5px; border-radius: 2px; background: #08060699; font-size: 4px; letter-spacing: .08em; }
+.creatorApp :global(.vlog-frame) { position: absolute; inset: 0; background: radial-gradient(circle at 68% 40%,#f5d1c8 0 9%,transparent 10%),linear-gradient(115deg,transparent 0 42%,#2a1018aa 43% 64%,transparent 65%); transition: transform 5s linear,filter .4s; }
+.creatorApp :global(.vlog-frame > i) { position: absolute; display: block; border: 1px solid #ffffff38; border-radius: 50%; }
+.creatorApp :global(.vlog-frame > i:nth-child(1)) { width: 105px; height: 105px; top: -18px; right: -30px; }
+.creatorApp :global(.vlog-frame > i:nth-child(2)) { width: 75px; height: 75px; bottom: -18px; left: -25px; }
+.creatorApp :global(.vlog-frame > i:nth-child(3)) { width: 2px; height: 135px; top: 25px; left: 50%; border: 0; border-radius: 0; background: #ffffff26; transform: rotate(18deg); }
+.creatorApp :global(.vlog-frame strong) { position: absolute; left: 11px; bottom: 16px; font: 400 23px/.72 var(--font-luxury); letter-spacing: -.03em; }
+.creatorApp :global(.vlog-frame strong em) { color: #fff; font: 400 1.35em var(--font-script); }
+.creatorApp :global(.vlog-preview button) { position: absolute; z-index: 4; top: 50%; left: 50%; width: 36px; height: 36px; display: grid; place-items: center; border: 1px solid #ffffff70; border-radius: 50%; color: #fff; background: #0806068c; transform: translate(-50%,-50%); }
+.creatorApp :global(.vlog-preview > small) { position: absolute; z-index: 3; right: 8px; bottom: 7px; font-size: 4px; letter-spacing: .12em; }
+.creatorApp :global(.manila-image) { position: absolute; inset: 0; overflow: hidden; background: linear-gradient(#ecaa9b 0 48%,#b85b67 49% 64%,#362027 65%); }
+.creatorApp :global(.manila-sun) { position: absolute; top: 28px; right: 28px; width: 33px; height: 33px; border-radius: 50%; background: #ffe5b5; box-shadow: 0 0 25px #ffd6a0; }
+.creatorApp :global(.manila-skyline) { position: absolute; right: 0; bottom: 50px; left: 0; height: 58px; display: flex; align-items: end; gap: 3px; opacity: .75; }
+.creatorApp :global(.manila-skyline i) { flex: 1; height: 42%; background: #48232d; }.creatorApp :global(.manila-skyline i:nth-child(2)) { height: 80%; }.creatorApp :global(.manila-skyline i:nth-child(3)) { height: 62%; }.creatorApp :global(.manila-skyline i:nth-child(4)) { height: 100%; }.creatorApp :global(.manila-skyline i:nth-child(5)) { height: 53%; }
+.creatorApp :global(.creator-silhouette) { position: absolute; right: 22px; bottom: -15px; width: 72px; height: 150px; border-radius: 45px 45px 0 0; background: linear-gradient(90deg,#251018,#6d2d40); transform: rotate(-5deg); }.creatorApp :global(.creator-silhouette::before) { content: ""; position: absolute; top: -25px; left: 17px; width: 40px; height: 48px; border-radius: 50%; background: #5d2b39; }
+.playing :global(.vlog-frame) { transform: scale(1.08); filter: saturate(1.12); }
+.playing :global(button[aria-label="Pause vlog"]) { opacity: .18; }
+
+.creatorApp :global(.editor-tools) { height: 37px; flex: none; display: grid; grid-template-columns: repeat(4,1fr); align-items: center; border-radius: 3px; background: #191315; }
+.creatorApp :global(.editor-tools button) { height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; border: 0; color: #aaa; background: transparent; font-size: 4px; cursor: pointer; transition: color .2s,background .2s; }
+.creatorApp :global(.editor-tools svg) { color: #ff4164; }
+.creatorApp :global(.editor-tools button:hover), .creatorApp .activeTool { color: #fff; background: #2c2024; }
+.creatorApp :global(.edit-timeline) { position: relative; height: 112px; flex: none; padding: 7px 6px 5px; overflow: hidden; border-radius: 3px; background: #161113; }
+.creatorApp :global(.time-ruler) { display: flex; justify-content: space-between; padding-bottom: 4px; border-bottom: 1px solid #282124; color: #645c5e; font-size: 4px; }
+.creatorApp :global(.timeline-playhead) { position: absolute; z-index: 5; top: 5px; bottom: 4px; left: 48%; width: 1px; background: #fff; }
+.creatorApp :global(.timeline-playhead i) { display: block; width: 5px; height: 5px; background: #fff; transform: translateX(-2px) rotate(45deg); }
+.creatorApp .playheadMoving { animation: scrub 5s linear infinite; }
+.creatorApp :global(.video-track) { height: 37px; margin-top: 6px; display: flex; gap: 2px; }
+.creatorApp :global(.video-track .clip) { height: 100%; flex: 1; padding: 3px; display: flex; align-items: end; color: #fff; background: linear-gradient(145deg,#6d2435,#d36879); font-size: 3px; }
+.creatorApp :global(.video-track .clip-1) { background: linear-gradient(145deg,#60402e,#d8a36d); }
+.creatorApp :global(.video-track .clip-2) { background: linear-gradient(145deg,#392833,#a2738a); }
+.creatorApp :global(.video-track .clip-3) { background: linear-gradient(145deg,#18252d,#53788c); }
+.creatorApp :global(.audio-track), .creatorApp :global(.caption-track) { height: 19px; margin-top: 3px; padding: 0 4px; display: flex; align-items: center; gap: 3px; color: #ff4164; background: #29151b; }
+.creatorApp :global(.audio-track span) { width: 2px; background: #ff4164; }
+.creatorApp :global(.audio-track span:nth-of-type(1)) { height: 5px; }
+.creatorApp :global(.audio-track span:nth-of-type(2)) { height: 10px; }
+.creatorApp :global(.audio-track span:nth-of-type(3)) { height: 7px; }
+.creatorApp :global(.audio-track span:nth-of-type(4)) { height: 12px; }
+.creatorApp :global(.audio-track span:nth-of-type(5)) { height: 5px; }
+.creatorApp :global(.caption-track) { color: #bdb1b5; background: #252127; }
+.creatorApp :global(.caption-track span) { font-size: 4px; letter-spacing: .04em; }
+.creatorApp :global(.edit-status) { margin-top: auto; display: flex; align-items: center; justify-content: space-between; color: #8e8588; font-size: 5px; }
+.creatorApp :global(.edit-status span) { display: flex; align-items: center; gap: 4px; }
+.creatorApp :global(.edit-status span svg) { color: var(--red); }
+
+@keyframes scrub {
+  from { left: 10%; }
+  to { left: 90%; }
+}
+
+@keyframes controlIn { from { opacity: 0; transform: translateY(-18px); } }
+
+@container (max-width: 225px) {
+  .creatorApp { padding-inline: 8px; gap: 6px; }
+  .creatorApp :global(.vlog-preview) { height: 170px; }
+  .creatorApp :global(.edit-timeline) { height: 100px; }
+  .homeWidget { margin-top: 18px; }
+  .igImage { height: 205px; }
+}

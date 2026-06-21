@@ -1,0 +1,35 @@
+export const profile = {
+  name: "Chesca Isabel De Malaluan",
+  email: "hello@yourdomain.com",
+  instagram: "@yourhandle",
+  linkedin: "/in/yourname",
+  hero: {
+    eyebrow: "VIDEO EDITING / VLOGGING / INSTAGRAM",
+    titleTop: "SOCIAL",
+    titleScript: "Media",
+    titleBottom: "MANAGER",
+    titleLast: "PORTFOLIO.",
+    role: "Video Editor, Vlogger & Social Media Creative based in the Philippines.",
+    specialties: "VIDEO EDITING • INSTAGRAM MANAGEMENT • VLOG STORYTELLING • REELS • CONTENT PLANNING",
+  },
+  about: {
+    portraitPlaceholder: "YOUR PORTRAIT",
+    role: "VIDEO EDITOR · VLOGGER · SOCIAL CREATIVE",
+    headline: "I turn raw moments into polished stories through thoughtful editing, Instagram content, and personality-led vlogs that feel natural, current, and worth watching.",
+    paragraph: "Based in the Philippines, I work with creators and growing brands to shape footage into engaging Reels, vlogs, Stories, and social campaigns. From the first hook to the final caption, I bring editing and social management together so every piece of content feels consistent and connected.",
+    facts: [
+      ["LOCATION", "Philippines / Remote"],
+      ["SPECIALTY", "Editing & Instagram"],
+      ["CONTENT FOCUS", "Vlogs, Reels, Lifestyle"],
+      ["AVAILABILITY", "Taking Clients"],
+    ],
+  },
+  contact: {
+    eyebrow: "LET'S EDIT SOMETHING WORTH WATCHING",
+    title: "READY TO TELL YOUR STORY ONLINE?",
+    heading: "LET'S COLLABORATE",
+    downloadLabel: "DOWNLOAD PORTFOLIO PDF",
+    footer: "© 2026 CHESCA ISABEL DE MALALUAN",
+    footerServices: "VIDEO EDITING · VLOGGING · INSTAGRAM · SOCIAL CONTENT",
+  },
+} as const;

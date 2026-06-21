@@ -9,6 +9,12 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@fontsource-variable/bodoni-moda": "^5.2.7",
+    "@fontsource-variable/manrope": "^5.2.8",
+    "@fontsource/dm-serif-display": "^5.2.8",
+    "@fontsource/italianno": "^5.2.8",
+    "framer-motion": "^12.40.0",
+    "lucide-react": "^1.21.0",
     "next": "16.2.9",
     "react": "19.2.4",
     "react-dom": "19.2.4"
