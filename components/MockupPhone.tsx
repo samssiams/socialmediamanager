@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import {
   BarChart3,
   BatteryMedium,
@@ -28,7 +29,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import styles from "./MockupPhone.module.css";
-import { phone } from "@/content/phone";
+import { phone } from "@/content/main-page/phone";
 
 type PhoneApp = "home" | "editor" | "instagram" | "photos" | "insights";
 
@@ -76,7 +77,7 @@ function PhoneOS() {
   return <><button className={styles.statusBar} onClick={() => setControlOpen(true)} aria-label="Open Control Center"><b>{phone.home.time}</b><span><Signal/><Wifi/><BatteryMedium/></span></button><div className={styles.appViewport} style={{ "--phone-zoom": zoom } as React.CSSProperties}>{app === "home" && <HomeScreen openApp={setApp}/>} {app === "editor" && <VlogEditor/>} {app === "instagram" && <InstagramApp goBack={()=>setApp("home")}/>} {(app === "photos" || app === "insights") && <SimpleApp app={app} goBack={()=>setApp("home")}/>}</div>{controlOpen && <ControlCenter close={()=>setControlOpen(false)} zoom={zoom} setZoom={setZoom}/>}<button className={styles.homeIndicator} onClick={()=>{setApp("home");setControlOpen(false)}} aria-label="Go to Home"/></>;
 }
 
-function FeedMockup() { return <><div className="phone-profile"><i /> {phone.feed.account}</div><div className="phone-post visual-placeholder warm" /><div className="phone-actions"><Heart size={16} /><MessageCircle size={16} /></div><b>{phone.feed.caption}</b></>; }
+function FeedMockup() { return <><div className="phone-profile"><i /> {phone.feed.account}</div><div className="phone-post visual-placeholder warm"><Image src={phone.feed.image.src} alt={phone.feed.image.alt} fill sizes="220px"/></div><div className="phone-actions"><Heart size={16} /><MessageCircle size={16} /></div><b>{phone.feed.caption}</b></>; }
 
 export default function MockupPhone({ variant = "logo" }: { variant?: "logo" | "feed" }) {
   return <div className={`phone ${variant} ${styles.device}`}><span className={`${styles.sideButton} ${styles.silentButton}`}/><span className={`${styles.sideButton} ${styles.volumeUp}`}/><span className={`${styles.sideButton} ${styles.volumeDown}`}/><span className={`${styles.sideButton} ${styles.powerButton}`}/><div className={`phone-speaker ${styles.dynamicIsland}`}><i/></div><div className={`phone-screen ${styles.screen}`}>{variant === "logo" ? <PhoneOS/> : <FeedMockup/>}</div></div>;

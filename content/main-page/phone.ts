@@ -16,5 +16,9 @@ export const phone = {
   },
   insights: { photosTitle: "Recent Photos", title: "Content Insights", reach: "48.2K", growth: "REEL REACH · +28.4%" },
   controls: { title: "Control Center", airplane: "Airplane", wifi: "Wi-Fi", bluetooth: "Bluetooth", focus: "Focus", zoom: "DISPLAY ZOOM" },
-  feed: { account: "@studio.social", caption: "Editorial movement, made social." },
+  feed: {
+    account: "@studio.social",
+    caption: "Editorial movement, made social.",
+    image: { src: "/images/portfolio/beauty-editorial.png", alt: "Editorial beauty campaign post" },
+  },
 } as const;

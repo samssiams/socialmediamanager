@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 720" role="img" aria-labelledby="title desc">
+  <title id="title">Lifestyle creator Instagram insights</title><desc id="desc">Mock analytics showing profile visits and Reel impressions.</desc>
+  <rect width="1080" height="720" fill="#f8f7f5"/><rect x="44" y="38" width="992" height="644" rx="28" fill="#fff" stroke="#e8e3df" stroke-width="2"/>
+  <text x="86" y="102" fill="#171315" font-family="Arial" font-size="25" font-weight="700">Professional dashboard</text><text x="86" y="137" fill="#81787b" font-family="Arial" font-size="15">Last 30 days</text>
+  <rect x="86" y="174" width="424" height="190" rx="18" fill="#faf7f7"/><text x="118" y="219" fill="#81787b" font-family="Arial" font-size="15">Profile visits</text><text x="118" y="286" fill="#171315" font-family="Arial" font-size="52" font-weight="700">2,846</text><text x="118" y="326" fill="#e6002d" font-family="Arial" font-size="18" font-weight="700">+184%</text>
+  <rect x="530" y="174" width="464" height="190" rx="18" fill="#faf7f7"/><text x="562" y="219" fill="#81787b" font-family="Arial" font-size="15">Reel impressions</text><text x="562" y="286" fill="#171315" font-family="Arial" font-size="52" font-weight="700">42.1K</text><text x="562" y="326" fill="#e6002d" font-family="Arial" font-size="18" font-weight="700">+76.8%</text>
+  <text x="86" y="418" fill="#171315" font-family="Arial" font-size="18" font-weight="700">Accounts reached</text><path d="M92 612 C180 578 215 594 292 542 S430 566 500 486 S640 518 720 438 S872 456 986 394" fill="none" stroke="#e6002d" stroke-width="7" stroke-linecap="round"/>
+  <g fill="#eee8e7"><rect x="90" y="454" width="896" height="2"/><rect x="90" y="514" width="896" height="2"/><rect x="90" y="574" width="896" height="2"/></g><g fill="#e6002d"><circle cx="292" cy="542" r="8"/><circle cx="500" cy="486" r="8"/><circle cx="720" cy="438" r="8"/><circle cx="986" cy="394" r="8"/></g>
+</svg>
