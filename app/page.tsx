@@ -26,7 +26,8 @@ import PricingCard from "@/components/PricingCard";
 import MockupPhone from "@/components/MockupPhone";
 import ContentCalendar from "@/components/ContentCalendar";
 import ImpactChart from "@/components/ImpactChart";
-import { ProgressBar, Reveal } from "@/components/Motion";
+import BackToTopButton from "@/components/BackToTopButton";
+import { ProgressBar, Reveal, RevealFooter, RevealHeader } from "@/components/Motion";
 import { packages, services, skills, testimonials, tools } from "@/lib/data";
 import { pageHeadings } from "@/content/main-page/page-headings";
 import { profile } from "@/content/main-page/profile";
@@ -47,22 +48,22 @@ export default function Home() {
     <main>
       <section className="hero section-dark">
         <div className="hero-glow" />
-        <header className="hero-top">
+        <RevealHeader className="hero-top">
+          <span className="hero-wordmark">Bel</span>
           <nav aria-label={interfaceCopy.socialNavLabel}>
             <a href={profile.instagramUrl} aria-label={interfaceCopy.socialLabels.instagram}>
-              <Instagram />
+              {interfaceCopy.socialLabels.instagram}
             </a>
             <a href={profile.linkedinUrl} aria-label={interfaceCopy.socialLabels.linkedin}>
-              <Linkedin />
+              {interfaceCopy.socialLabels.linkedin}
             </a>
             <a href={`mailto:${profile.email}`} aria-label={interfaceCopy.socialLabels.email}>
-              <Mail />
+              {interfaceCopy.socialLabels.email}
             </a>
           </nav>
-        </header>
-        <div className="hero-grid">
-          <Reveal className="hero-copy">
-            <p className="micro red">{profile.hero.eyebrow}</p>
+        </RevealHeader>
+        <div className="hero-grid hero-grid-no-phone">
+          <Reveal className="hero-copy" variant="soft">
             <h1>
               {profile.hero.titleTop}
               <br />
@@ -73,24 +74,19 @@ export default function Home() {
               {profile.hero.titleLast}
             </h1>
           </Reveal>
-          <Reveal className="hero-phone" delay={0.2}>
-            <MockupPhone />
-            <div className="orbit orbit-one" />
-            <div className="orbit orbit-two" />
-          </Reveal>
         </div>
-        <div className="hero-bottom">
+        <Reveal className="hero-bottom" delay={0.12}>
           <div>
             <h3>{profile.name}</h3>
             <p>{profile.hero.role}</p>
           </div>
           <p>{profile.hero.specialties}</p>
-        </div>
+        </Reveal>
       </section>
 
       <section className="about section-cream">
         <div className="container about-grid">
-          <Reveal className="portrait-wrap">
+          <Reveal className="portrait-wrap" variant="left">
             <div className="portrait visual-placeholder">
               <span>{profile.about.portraitPlaceholder}</span>
             </div>
@@ -99,7 +95,7 @@ export default function Home() {
               <span>{profile.about.role}</span>
             </div>
           </Reveal>
-          <Reveal className="about-copy">
+          <Reveal className="about-copy" variant="right" delay={0.08}>
             <span className="quote-mark">“</span>
             <h2>{profile.about.headline}</h2>
             <p>{profile.about.paragraph}</p>
@@ -120,7 +116,7 @@ export default function Home() {
           <SectionHeader {...pageHeadings.services} />
           <div className="services-grid">
             {services.map((service, i) => (
-              <Reveal key={service.title} delay={i * 0.06}>
+              <Reveal key={service.title} delay={i * 0.06} variant="scale">
                 <ServiceCard {...service} index={i} />
               </Reveal>
             ))}
@@ -137,7 +133,7 @@ export default function Home() {
           />
           <p className="section-intro">{pageHeadings.skills.intro}</p>
           <div className="arsenal-grid">
-            <Reveal className="skill-list">
+            <Reveal className="skill-list" variant="left">
               {skills.map(([name, value]) => (
                 <div className="skill" key={name}>
                   <p>
@@ -148,7 +144,7 @@ export default function Home() {
                 </div>
               ))}
             </Reveal>
-            <Reveal className="tools-grid" delay={0.15}>
+            <Reveal className="tools-grid" delay={0.15} variant="right">
               {tools.map((tool, i) => {
                 const Icon = [
                   Megaphone,
@@ -177,14 +173,14 @@ export default function Home() {
         <div className="container">
           <SectionHeader {...pageHeadings.creativeDirection} />
           <div className="mood-grid">
-            <Reveal className="type-card hover-lift">
+            <Reveal className="type-card hover-lift" variant="left">
               <small>{creativeDirection.typographyLabel}</small>
               <h3>{creativeDirection.displayFont}</h3>
               <p>{creativeDirection.displayDescription}</p>
               <h4>{creativeDirection.bodyFont}</h4>
               <p>{creativeDirection.bodyDescription}</p>
             </Reveal>
-            <Reveal className="collage" delay={0.1}>
+            <Reveal className="collage" delay={0.1} variant="right">
               <div className="photo photo-a visual-placeholder">
                 <Image
                   src={creativeDirection.images.first.src}
@@ -213,7 +209,7 @@ export default function Home() {
                 <span>{creativeDirection.collageLabels[1]}</span>
               </div>
             </Reveal>
-            <Reveal className="palette">
+            <Reveal className="palette" variant="soft">
               <small>{creativeDirection.paletteLabel}</small>
               <div>
                 <i />
@@ -232,7 +228,7 @@ export default function Home() {
           <SectionHeader {...pageHeadings.process} />
           <div className="timeline">
             {process.map((step, i) => (
-              <Reveal className="process-step" key={step.title}>
+              <Reveal className="process-step" key={step.title} delay={i * 0.05} variant={i % 2 === 0 ? "left" : "right"}>
                 <div className="step-number">{i + 1}</div>
                 <article className="hover-lift">
                   <step.icon />
@@ -253,7 +249,7 @@ export default function Home() {
       <section className="case-fashion section-dark">
         <div className="fashion-backdrop visual-placeholder" />
         <div className="container case-grid">
-          <Reveal className="case-copy">
+          <Reveal className="case-copy" variant="left">
             <p className="micro red">{caseStudies.lifestyle.label}</p>
             <h2>{caseStudies.lifestyle.title}</h2>
             <div className="case-detail">
@@ -281,7 +277,7 @@ export default function Home() {
               {interfaceCopy.viewCaseStudyLabel} <ArrowUpRight />
             </Link>
           </Reveal>
-          <Reveal className="case-phone" delay={0.15}>
+          <Reveal className="case-phone" delay={0.15} variant="right">
             <MockupPhone variant="feed" />
             <div className="post-card">
               <div className="visual-placeholder">
@@ -308,7 +304,7 @@ export default function Home() {
             <p>{caseStudies.cafe.intro}</p>
           </div>
           <div className="food-grid">
-            <Reveal className="food-copy">
+            <Reveal className="food-copy" variant="left">
               <article>
                 <small>{caseStudies.cafe.challengeLabel}</small>
                 <h3>{caseStudies.cafe.challenge}</h3>
@@ -325,7 +321,7 @@ export default function Home() {
                 {interfaceCopy.viewCaseStudyLabel} <ArrowUpRight />
               </Link>
             </Reveal>
-            <Reveal className="food-visuals" delay={0.12}>
+            <Reveal className="food-visuals" delay={0.12} variant="right">
               <div className="food-photo visual-placeholder">
                 <Image
                   src={caseStudies.cafe.primaryImage.src}
@@ -361,7 +357,7 @@ export default function Home() {
             center
           />
           <div className="beauty-grid">
-            <Reveal className="before-after">
+            <Reveal className="before-after" variant="left">
               <div>
                 <small>{caseStudies.beauty.rawLabel}</small>
                 <div className="beauty-before visual-placeholder">
@@ -387,7 +383,7 @@ export default function Home() {
                 </div>
               </div>
             </Reveal>
-            <Reveal className="beauty-copy" delay={0.12}>
+            <Reveal className="beauty-copy" delay={0.12} variant="right">
               <p className="micro red">{caseStudies.beauty.label}</p>
               <h3>{caseStudies.beauty.title}</h3>
               <p>{caseStudies.beauty.description}</p>
@@ -420,7 +416,7 @@ export default function Home() {
             {pageHeadings.creativeOutput.intro}
           </p>
           <div className="content-grid">
-            <Reveal className="content-feature visual-placeholder">
+            <Reveal className="content-feature visual-placeholder" variant="scale">
               <Image
                 src={creativeOutput.featureImage.src}
                 alt={creativeOutput.featureImage.alt}
@@ -430,7 +426,7 @@ export default function Home() {
               <span>{creativeOutput.feature}</span>
               <ArrowUpRight />
             </Reveal>
-            <Reveal className="content-video visual-placeholder" delay={0.06}>
+            <Reveal className="content-video visual-placeholder" delay={0.06} variant="right">
               <Image
                 src={creativeOutput.videoImage.src}
                 alt={creativeOutput.videoImage.alt}
@@ -442,11 +438,11 @@ export default function Home() {
               </button>
               <span>{creativeOutput.video}</span>
             </Reveal>
-            <Reveal className="content-quote" delay={0.12}>
+            <Reveal className="content-quote" delay={0.12} variant="soft">
               <small>{creativeOutput.audioLabel}</small>
               <blockquote>“{creativeOutput.quote}”</blockquote>
             </Reveal>
-            <Reveal className="content-small visual-placeholder" delay={0.18}>
+            <Reveal className="content-small visual-placeholder" delay={0.18} variant="scale">
               <Image
                 src={creativeOutput.detailImage.src}
                 alt={creativeOutput.detailImage.alt}
@@ -469,7 +465,7 @@ export default function Home() {
           <p className="section-intro dark-text">
             {pageHeadings.organization.intro}
           </p>
-          <Reveal>
+          <Reveal variant="scale">
             <ContentCalendar />
           </Reveal>
         </div>
@@ -484,8 +480,10 @@ export default function Home() {
           />
           <p className="section-intro">{pageHeadings.impact.intro}</p>
           <div className="impact-stats">
-            {impact.stats.map((stat) => (
-              <StatCard key={stat.label} {...stat} />
+            {impact.stats.map((stat, i) => (
+              <Reveal key={stat.label} delay={i * 0.08} variant="scale">
+                <StatCard {...stat} />
+              </Reveal>
             ))}
           </div>
           <ImpactChart />
@@ -505,7 +503,7 @@ export default function Home() {
           />
           <div className="testimonials-grid">
             {testimonials.map((item, i) => (
-              <Reveal key={item.name} delay={i * 0.1}>
+              <Reveal key={item.name} delay={i * 0.1} variant="scale">
                 <TestimonialCard {...item} />
               </Reveal>
             ))}
@@ -524,7 +522,7 @@ export default function Home() {
           </p>
           <div className="pricing-grid">
             {packages.map((item, i) => (
-              <Reveal key={item.name} delay={i * 0.08}>
+              <Reveal key={item.name} delay={i * 0.08} variant="scale">
                 <PricingCard {...item} />
               </Reveal>
             ))}
@@ -536,10 +534,10 @@ export default function Home() {
         <ArrowDown className="contact-arrow" />
         <div className="container">
           <p className="micro">{profile.contact.eyebrow}</p>
-          <Reveal>
+          <Reveal variant="soft">
             <h2>{profile.contact.title}</h2>
           </Reveal>
-          <div className="contact-bottom">
+          <Reveal className="contact-bottom" delay={0.08} variant="left">
             <div>
               <h3>{profile.contact.heading}</h3>
               <a href={`mailto:${profile.email}`}>
@@ -555,18 +553,21 @@ export default function Home() {
                 {profile.linkedin}
               </a>
             </div>
-            <a
-              className="download-button"
-              href={`mailto:${profile.email}?subject=${encodeURIComponent(profile.contact.portfolioEmailSubject)}`}
-            >
-              <Download />
-              {profile.contact.downloadLabel}
-            </a>
-          </div>
-          <footer>
+            <div className="contact-actions">
+              <a
+                className="download-button"
+                href={`mailto:${profile.email}?subject=${encodeURIComponent(profile.contact.portfolioEmailSubject)}`}
+              >
+                <Download />
+                {profile.contact.downloadLabel}
+              </a>
+              <BackToTopButton />
+            </div>
+          </Reveal>
+          <RevealFooter delay={0.16}>
             {profile.contact.footer}{" "}
             <span>{profile.contact.footerServices}</span>
-          </footer>
+          </RevealFooter>
         </div>
       </section>
     </main>

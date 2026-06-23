@@ -6,7 +6,7 @@ export const profile = {
   linkedin: "/in/yourname",
   linkedinUrl: "https://linkedin.com/in/yourname",
   hero: {
-    eyebrow: "VIDEO EDITING / VLOGGING / INSTAGRAM",
+    eyebrow: "STORY-LED CONTENT FOR SOCIAL-FIRST BRANDS",
     titleTop: "SOCIAL",
     titleScript: "Media",
     titleBottom: "MANAGER",
@@ -32,7 +32,7 @@ export const profile = {
     heading: "LET'S COLLABORATE",
     downloadLabel: "DOWNLOAD PORTFOLIO PDF",
     portfolioEmailSubject: "Portfolio PDF",
-    footer: "© 2026 CHESCA ISABEL DE MALALUAN",
+    footer: "© 2026",
     footerServices: "VIDEO EDITING · VLOGGING · INSTAGRAM · SOCIAL CONTENT",
   },
 } as const;
